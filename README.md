@@ -21,11 +21,11 @@ grupos.
  - a) Avalie se é possível obter o fator de Cholesky;
  - b) Resolva o sistema Ax = b usando a fatoração de Cholesky.
 
-### 4) Implemente um algoritmo que leia uma matriz A e um vetor b (de uma planilha excel).
+### 4) Implemente um algoritmo que leia uma matriz A e um vetor b (de uma planilha excel) e:
  - a) Avalie se algum critério é satisfeito para aplicação dos métodos de Gauss-Seidel, Jacobi e SOR.
  - b) Resolva o sistema Ax = b usando os métodos iterativos de Gauss-Seidel, Jacobi e SOR.
 
-### 5) Implemente um algoritmo que leia uma matriz A e (de uma planilha excel):
+### 5) Implemente um algoritmo que leia uma matriz A (de uma planilha excel) e:
  - a) Calcule a transposta de A;
  - b) Calcule o determinante de A;
  - c) Calcule a matriz adjunta de A;
@@ -47,7 +47,7 @@ grupos.
  - a) O número condição de A;
  - b) Retorne uma mensagem ao usuário sobre sua interpretação.
 
-### 9) Construa um algoritmo que receba três matrizes: U, sigma e V (de uma planilha excel).
+### 9) Construa um algoritmo que receba três matrizes: U, sigma e V (de uma planilha excel) e:
  - a) Avalie se o produto das três matrizes representa uma decomposição SVD de alguma matriz X;
  - b) Caso a resposta a pergunta anterior seja negativa, retorne ao usuário uma explicação justificando esse fato.
 
