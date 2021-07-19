@@ -1,6 +1,6 @@
 # Prova de Implementação - Álgebra Linear Computacional - 2020.2
+## NO ARQUIVO RUN, NO PRIMEIRO BLOCO DE COMENTÁRIO ENCONTRA-SE A LISTA DOS ALGORITMOS POR FAZER E JÁ FEITOS
 ### Professor Erito Marques
-
 Repositório dos algoritmos solicitados na segunda prova da disciplina de Álgebra Linear Computacional.
 
 Instruções:
