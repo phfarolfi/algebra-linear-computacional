@@ -22,7 +22,7 @@ def calcula_sigma(w1, w2, n, m): # Função que ajusta a matriz sigma e já a re
 
     return matriz_S # Retorna a matriz sigma
 
-matriz_A = np.loadtxt("matriz_exemplo.txt", dtype='f8') # Carrega a matriz que eu estava usando de exemplo
+matriz_A = np.loadtxt("dados/matriz_A.txt", dtype='f8') # Carrega a matriz que eu estava usando de exemplo
 
 A_At = np.matmul(matriz_A, np.transpose(matriz_A)) # A_At é a multiplicação de A por A(transposta)
 At_A = np.matmul(np.transpose(matriz_A), matriz_A) # At_A é a multiplicação de A(transposta) por A
@@ -56,5 +56,5 @@ matriz_US = np.matmul(matriz_U, matriz_S)
 matriz_USVt = np.matmul(matriz_US, np.transpose(matriz_V))
 
 print("Matriz_A: \n", matriz_A)
-print("Matriz USVt = A(predo): \n", matriz_USVt)
+print("Matriz USVt = A(pedro): \n", matriz_USVt)
 print("Matriz USVt = A(numpy): \n", numpy_USVt) # O resultado deveria ser a matriz A, mas tá diferente (porém próximo)

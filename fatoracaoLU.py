@@ -1,23 +1,23 @@
 import numpy as np
-import resolucao_sistemas_triangulares as rst
+import substituicao as subs
 
-def fatoracaoLU(matriz_a, vetor_b):
-    n = len(matriz_a)
-    matriz_u = np.copy(matriz_a)
-    matriz_l = np.identity(n)
+def fatoracaoLU(matriz_A, vetor_b):
+    n = len(matriz_A)
+    matriz_U = np.copy(matriz_A)
+    matriz_L = np.identity(n)
 
     for i in range(n-1):
         for j in range(i+1, n):
-            m = matriz_u[j,i]/matriz_u[i,i] # x é o multiplicador necessário para executar a eliminação
-            matriz_l[j,i] = m # os números multiplicadores são armazenados abaixo da diagonal principal da matriz L
+            m = matriz_U[j,i]/matriz_U[i,i] # x é o multiplicador necessário para executar a eliminação
+            matriz_L[j,i] = m # os números multiplicadores são armazenados abaixo da diagonal principal da matriz L
 
             for k in range(i, n):
-                matriz_u[j,k] -= matriz_u[i,k] * m # aplica o multiplicador x para zerar os elementos abaixo da diagonal principal da matriz U
+                matriz_U[j,k] -= matriz_U[i,k] * m # aplica o multiplicador x para zerar os elementos abaixo da diagonal principal da matriz U
 
-    return resolve_lu(matriz_u, matriz_l, vetor_b) # A matriz U é triangular superior e a matriz L é triangular inferior
+    return resolve_LU(matriz_U, matriz_L, vetor_b) # A matriz U é triangular superior e a matriz L é triangular inferior
 
-def resolve_lu(matriz_u, matriz_l, vetor_b):
-    vetor_y = rst.resolve_subs_frente(matriz_l, vetor_b) # resolve o sistema Ly = b pela substituicao para frente
-    vetor_x = rst.resolve_subs_tras(matriz_u, vetor_y) # resolve o sistema Ux = y pela substituicao para tras
+def resolve_LU(matriz_U, matriz_L, vetor_b):
+    vetor_y = subs.resolve_substituicao(matriz_L, vetor_b) # resolve o sistema Ly = b pela substituicao para frente
+    vetor_x = subs.resolve_substituicao(matriz_U, vetor_y) # resolve o sistema Ux = y pela substituicao para tras
 
     return vetor_x # Retorna o vetor x (resultado)

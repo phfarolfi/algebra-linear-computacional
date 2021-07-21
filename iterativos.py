@@ -72,6 +72,8 @@ def seidel(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10): # Função que ex
     print("(Seidel) Resultado encontrado com o número máximo de iterações.")
     return vetor_x # Retorna o vetor solução
 
+''' ----------------------------------------------------------------------------------------------------------------------------------------------------------------- '''
+
 def sor(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10, w=1.7): # Quando w = 1 é igual ao Seidel
     n, m = len(matriz_A), len(matriz_A[0]) # n e m são as dimensões da matriz
     aux = 0 # Variável que vai auxiliar a armazenar as subtrações dos valores Aij*xj
@@ -107,10 +109,3 @@ def sor(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10, w=1.7): # Quando w = 
 
     print("(SOR) Resultado encontrado com o número máximo de iterações.")
     return vetor_x # Retorna o vetor solução
-
-matriz_A = np.loadtxt("matriz_A.txt", dtype='f8')
-vetor_b = np.loadtxt("vetor_b.txt", dtype='f8')
-
-print(jacobi(matriz_A, vetor_b), "\n")
-print(seidel(matriz_A, vetor_b), "\n")
-print(sor(matriz_A, vetor_b), "\n")

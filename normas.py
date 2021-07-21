@@ -1,7 +1,7 @@
 import numpy as np
 import math
 
-def euclidiana(vetor):
+def euclidiana(vetor): # norma-2 vetorial
     n, x = len(vetor), 0
 
     for i in range(n):
@@ -9,7 +9,7 @@ def euclidiana(vetor):
 
     return x ** (1/2)
 
-def manhattan(vetor):
+def manhattan(vetor): # norma-1 vetorial
     n, x = len(vetor), 0
 
     for i in range(n):
@@ -17,7 +17,7 @@ def manhattan(vetor):
 
     return x
 
-def p(vetor, p):
+def p(vetor, p): #norma-p vetorial
     n, x = len(vetor), 0
 
     for i in range(n):
@@ -25,7 +25,7 @@ def p(vetor, p):
 
     return x ** (1/p)
 
-def infinita(vetor):
+def infinita(vetor): # norma-infinita vetorial
     n, max = len(vetor), vetor[0]
     
     for i in range(1, n):
@@ -34,7 +34,7 @@ def infinita(vetor):
 
     return max
 
-def frobenius(matriz_a):
+def frobenius(matriz_a): # norma-2 matricial
     n, x = len(matriz_a), 0
 
     for i in range(n):
@@ -67,7 +67,7 @@ def soma_linha(matriz_a): # norma-infinita matricial
 
     return max
 
-def residual(matriz_a, vetor_b, delta_x):
+def residual(matriz_a, vetor_b, delta_x): #norma-residual matricial
     n, k = len(matriz_a), np.linalg.cond(matriz_a)
     delta_b = np.matmul(matriz_a, delta_x)
     vetor_r = vetor_b - delta_b
