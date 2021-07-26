@@ -3,13 +3,14 @@ import criterios as crit
 
 def resolve_substituicao(matriz_A, vetor_b):
     if(crit.verifica_tri_inferior(matriz_A)):
-        resolve_subs_frente(matriz_A, vetor_b)
+        return resolve_subs_frente(matriz_A, vetor_b)
 
-    if(crit.verifica_tri_superior(matriz_A)):
-        resolve_subs_tras(matriz_A,vetor_b)
+    elif(crit.verifica_tri_superior(matriz_A)):
+        return resolve_subs_tras(matriz_A,vetor_b)
         
-    print("A matriz não é triangular")
-    return RuntimeError
+    else:
+        print("A matriz não é triangular")
+        return RuntimeError
 
 def resolve_subs_frente(matriz_A, vetor_b): # Resolve um sistema com matriz triangular inferior
     n = len(matriz_A)
@@ -23,7 +24,7 @@ def resolve_subs_frente(matriz_A, vetor_b): # Resolve um sistema com matriz tria
 
 def resolve_subs_tras(matriz_A,vetor_b): # Resolve um sistema com matriz triangular superior
     n = len(matriz_A)
-    vetor_resultado = np.array(np.copy(vetor_b), dtype= 'f8')
+    vetor_resultado = np.array(np.copy(vetor_b), dtype='f8')
 
     for i in range(n-1,-1,-1):
         for j in range(n-1,i,-1):
