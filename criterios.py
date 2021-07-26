@@ -1,5 +1,7 @@
 import numpy as np
 
+tol = 1e-10
+
 def verifica_quadrada(matriz_A):
     linhas, colunas = np.shape(matriz_A)
     return linhas == colunas
@@ -54,7 +56,7 @@ def verifica_tri_superior(matriz_A):
 
     for i in range(linhas):
         for j in range(i):
-            if matriz_A[i,j] != 0:
+            if np.fabs(matriz_A[i,j]) > tol:
                 return False
     return True
 
@@ -63,7 +65,7 @@ def verifica_tri_inferior(matriz_A):
 
     for j in range(colunas):
         for i in range(j):
-            if matriz_A[i,j] != 0:
+            if np.fabs(matriz_A[i,j]) > tol:
                 return False
     return True
 
