@@ -80,9 +80,9 @@ def traco(matriz_A):
 
 def traco_maior_que_quatro(traco):
     if traco > 4:
-        print("O traço da matriz é maior que 4")
+        print("O traço da matriz é "+ str(traco) +", portanto é maior que 4")
         return True
-    print("O traço da matriz não é maior que 4")
+    print("O traço da matriz é "+ str(traco) +", portanto não é maior que 4")
     return False
 
 ''' CRITÉRIOS DE CONVERGÊNCIA DOS MÉTODOS ITERATIVOS '''
