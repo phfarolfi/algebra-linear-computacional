@@ -1,7 +1,7 @@
 from criterios import criterio_linhas, criterio_sassenfeld
 import numpy as np
 
-def jacobi(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10): # Função que executa o algoritmo de Jacobi
+def jacobi(matriz_A, vetor_b, vetor_x=None, N=1000, p=1e-15): # Função que executa o algoritmo de Jacobi
     n, m = len(matriz_A), len(matriz_A[0]) # n e m são as dimensões da matriz
     aux = 0 # Variável que vai auxiliar a armazenar as subtrações dos valores Aij*xj
 
@@ -20,7 +20,7 @@ def jacobi(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10): # Função que ex
             for j in range(n):
                 if i != j: # Pula os elementos da diagonal principal pois eles não são utilizados
                     aux += matriz_A[i,j] * vetor_x[j] # Acumula as subtrações dos valores de Aij*xj
-
+            
             vetor_aux[i] = (vetor_b[i] - aux)/matriz_A[i,i] # Executa a iteração do método com (bi-Aij*xj)/Aii
             aux = 0 # Zera a contagem do somatório dos valores novamente
 
@@ -36,7 +36,7 @@ def jacobi(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10): # Função que ex
 
 ''' ----------------------------------------------------------------------------------------------------------------------------------------------------------------- '''
     
-def seidel(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10): # Função que executa o algoritmo de Gauss-Seidel
+def seidel(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-15): # Função que executa o algoritmo de Gauss-Seidel
     n, m = len(matriz_A), len(matriz_A[0]) # n e m são as dimensões da matriz
     aux = 0 # Variável que vai auxiliar a armazenar as subtrações dos valores Aij*xj
 
@@ -44,6 +44,11 @@ def seidel(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10): # Função que ex
         vetor_x = np.zeros(m)
 
     vetor_aux = np.copy(vetor_x) # Vetor auxiliar igual ao vetor x que representa a iteração k+1
+    	
+    if criterio_linhas(matriz_A): # Verifica se o critério das linhas é satisfeito
+        print("O critério das linhas foi satisfeito: O sistema converge.")
+    else:
+        print("ATENÇÃO: O critério das linhas não foi satisfeito.")
 
     if criterio_sassenfeld(matriz_A): # Verifica se o critério de Sassenfeld é satisfeito
         print("O critério de Sassenfeld foi satisfeito.")
@@ -74,7 +79,7 @@ def seidel(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10): # Função que ex
 
 ''' ----------------------------------------------------------------------------------------------------------------------------------------------------------------- '''
 
-def sor(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10, w=1.7): # Quando w = 1 é igual ao Seidel
+def sor(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-15, w=1.7): # Quando w = 1 é igual ao Seidel
     n, m = len(matriz_A), len(matriz_A[0]) # n e m são as dimensões da matriz
     aux = 0 # Variável que vai auxiliar a armazenar as subtrações dos valores Aij*xj
 
@@ -82,6 +87,11 @@ def sor(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-10, w=1.7): # Quando w = 
         vetor_x = np.zeros(m)
 
     vetor_aux = np.copy(vetor_x) # Vetor auxiliar igual ao vetor x que representa a iteração k+1
+
+    if criterio_linhas(matriz_A): # Verifica se o critério das linhas é satisfeito
+        print("O critério das linhas foi satisfeito: O sistema converge.")
+    else:
+        print("ATENÇÃO: O critério das linhas não foi satisfeito.")
 
     if criterio_sassenfeld(matriz_A): # Verifica se o critério das linhas é satisfeito
         print("O critério de Sassenfeld foi satisfeito.")

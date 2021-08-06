@@ -10,7 +10,7 @@ def resolve_substituicao(matriz_A, vetor_b):
         
     else:
         print("A matriz não é triangular")
-        return RuntimeError
+        return False
 
 def resolve_subs_frente(matriz_A, vetor_b): # Resolve um sistema com matriz triangular inferior
     n = len(matriz_A)
