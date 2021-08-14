@@ -1,7 +1,5 @@
 import numpy as np
 
-tol = 1e-10
-
 def verifica_quadrada(matriz_A):
     linhas, colunas = np.shape(matriz_A)
     return linhas == colunas
@@ -34,7 +32,7 @@ def verifica_pos_def(matriz_A):
         for i in range(n):
             soma = 0
             for j in range(n):
-                soma = soma + matriz_A[i,j]
+                soma += matriz_A[i,j]
             if(soma == 0):
                 return False
         return True
@@ -51,7 +49,7 @@ def verifica_tridiagonal(matriz_A):
                 return False
     return True
 
-def verifica_tri_superior(matriz_A):
+def verifica_tri_superior(matriz_A, tol=1e-10):
     linhas = len(matriz_A)
 
     for i in range(linhas):
@@ -60,7 +58,7 @@ def verifica_tri_superior(matriz_A):
                 return False
     return True
 
-def verifica_tri_inferior(matriz_A):
+def verifica_tri_inferior(matriz_A, tol=1e-10):
     colunas = len(matriz_A[0])
 
     for j in range(colunas):

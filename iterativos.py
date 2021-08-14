@@ -1,7 +1,7 @@
 from criterios import criterio_linhas, criterio_sassenfeld
 import numpy as np
 
-def jacobi(matriz_A, vetor_b, vetor_x=None, N=1000, p=1e-15): # Função que executa o algoritmo de Jacobi
+def jacobi(matriz_A, vetor_b, vetor_x=None, N=10000, p=1e-15): # Função que executa o algoritmo de Jacobi
     n, m = len(matriz_A), len(matriz_A[0]) # n e m são as dimensões da matriz
     aux = 0 # Variável que vai auxiliar a armazenar as subtrações dos valores Aij*xj
 
