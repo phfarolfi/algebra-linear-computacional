@@ -19,11 +19,11 @@ def verifica_simetria(matriz_A):
         for i in range(n):
             for j in range(n):
                 if (i != j) and (matriz_A[i,j] != matriz_A[j,i]):
-                    print("A matriz não é simétrica")
+                    print("A matriz não é simétrica.")
                     return False
-        print("A matriz é simétrica")
+        print("A matriz é simétrica.")
         return True
-    print("A matriz não é quadrada")
+    print("A matriz não é quadrada.")
     return False
 
 def verifica_pos_def(matriz_A):
@@ -33,9 +33,12 @@ def verifica_pos_def(matriz_A):
             soma = 0
             for j in range(n):
                 soma += matriz_A[i,j]
-            if(soma == 0):
+            if(soma == 0 or matriz_A[i,i] <= 0):
+                print("A matriz não é positiva definida.")
                 return False
+        print("A matriz é positiva definida.")
         return True
+    print("A matriz não é positiva definida.")
     return False
 
 def verifica_tridiagonal(matriz_A):
